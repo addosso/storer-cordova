@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com-addosso-storer"
+    version="0.2.0">
+    <name>Storer</name>
+    <description>Cordovatorer</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,MacAddress</keywords>
+
+
+    <js-module src="www/Storer.js" name="Storer">
+        <clobbers target="window.Storer" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="StorerPlugin">
+                <param name="android-package" value="com.addosso.Storer.StorerPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        </config-file>
+
+        <source-file src="src/android/StorerPlugin.java" target-dir="src/com/addosso/Storer/" />
+    </platform>
+
+
+</plugin>
